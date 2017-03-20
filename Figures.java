@@ -37,8 +37,9 @@ class Figures
 
             Quadrangle aa = new Quadrangle(xx1,xx2,xx3,xx4);
             System.out.println(aa.diagonal(new Point(0,0)));
+
         }
-        catch(RuntimeException e)
+        catch(Exception e)
         {
             System.out.println(e);
         }  

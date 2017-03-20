@@ -9,7 +9,15 @@ class Quadrangle implements Comparable<Quadrangle>
 	private Point c;
 	private Point d;
 
-	public Quadrangle()
+/*
+	Runtime exception serve a specific purpose - 
+	they signal programming problems that can be fixed only by changing code, 
+	as opposed to changing the environment in which the program runs.
+
+	WHEN RE-THROWING : RuntimeException(originalException)
+*/
+
+	public Quadrangle() throws Exception
 	{
 		this.a = new Point(0,0);
 		this.b = new Point(2,0);
@@ -18,7 +26,7 @@ class Quadrangle implements Comparable<Quadrangle>
 		this.checkIfValid();
 	}
 
-	public Quadrangle(Point a, Point b, Point c, Point d)
+	public Quadrangle(Point a, Point b, Point c, Point d) throws Exception
 	{
 		this.a = a;
 		this.b = b;
@@ -27,7 +35,7 @@ class Quadrangle implements Comparable<Quadrangle>
 		this.checkIfValid();
 	}
 
-	public Quadrangle(Quadrangle quadrangle)
+	public Quadrangle(Quadrangle quadrangle) throws Exception
 	{
 		this.a = new Point(quadrangle.a);
 		this.b = new Point(quadrangle.b);
@@ -36,25 +44,25 @@ class Quadrangle implements Comparable<Quadrangle>
 		this.checkIfValid();
 	}
 
-	public void setPointA(Point a)
+	public void setPointA(Point a) throws Exception
 	{
 		this.a = a;
 		this.checkIfValid();
 	}
 
-	public void setPointB(Point b)
+	public void setPointB(Point b) throws Exception
 	{
 		this.b = b;
 		this.checkIfValid();
 	}
 
-	public void setPointC(Point c)
+	public void setPointC(Point c) throws Exception
 	{
 		this.c = c;
 		this.checkIfValid();
 	}
 
-	public void setPointD(Point d)
+	public void setPointD(Point d) throws Exception
 	{
 		this.d = d;
 		this.checkIfValid();
@@ -80,7 +88,7 @@ class Quadrangle implements Comparable<Quadrangle>
 		return this.d;
 	}
 
-	public boolean checkIfValid() throws RuntimeException
+	public boolean checkIfValid() throws Exception
 	{
 		double a = this.a.getLength(this.b);
 		double b = this.b.getLength(this.d);
@@ -90,7 +98,7 @@ class Quadrangle implements Comparable<Quadrangle>
 		double _MAX = this.max(a,b,c,d);
 		if(2*_MAX < a+b+c+d)
 			return true;
-		throw new RuntimeException("Quadrangle is not valid");
+		throw new Exception("Quadrangle is not valid");
 
 	}
 
@@ -113,7 +121,7 @@ class Quadrangle implements Comparable<Quadrangle>
 		return Math.abs((a.getX()*b.getY() - a.getY()*b.getX()) + (b.getX()*c.getY() - b.getY()*c.getX()) + (c.getX()*d.getY() - c.getY()*d.getX()) + (d.getX()*a.getY() - d.getY()*a.getX()))/2.0; 
 	}
 
-    public double diagonal(Point point) throws RuntimeException
+    public double diagonal(Point point) throws IllegalArgumentException
     {
         if(this.a.equals(point) || this.c.equals(point))
         {
@@ -125,7 +133,7 @@ class Quadrangle implements Comparable<Quadrangle>
         }
         else
         {
-            throw new RuntimeException("Param is not valid");
+            throw new IllegalArgumentException("Param is not valid");
         }
     }
 

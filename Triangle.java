@@ -15,7 +15,7 @@ class Triangle implements Comparable<Triangle>
 		 Default constructor Triangle():
 		 Pytagoras triangle |A| = 3, |B| = 4, |C| = 5
 	*/
-	public Triangle()
+	public Triangle() throws Exception
 	{
 		this.a = new Point(0,0);
 		this.b = new Point(3,0);
@@ -23,7 +23,7 @@ class Triangle implements Comparable<Triangle>
 		this.checkIfValid();
 	}
 
-	public Triangle(Point a, Point b, Point c)
+	public Triangle(Point a, Point b, Point c) throws Exception
 	{
 		this.a = a;
 		this.b = b;
@@ -31,7 +31,7 @@ class Triangle implements Comparable<Triangle>
 		this.checkIfValid();
 	}
 
-	Triangle(Triangle triangle)
+	Triangle(Triangle triangle) throws Exception
 	{
 		this.a = new Point(triangle.a);
 		this.b = new Point(triangle.b);
@@ -39,7 +39,7 @@ class Triangle implements Comparable<Triangle>
 		this.checkIfValid();
 	}
 
-	public boolean checkIfValid() throws RuntimeException
+	public boolean checkIfValid() throws Exception
 	{
 		double _a = this.a.getLength(this.b);
 		double _b = this.b.getLength(this.c);
@@ -47,22 +47,22 @@ class Triangle implements Comparable<Triangle>
 		double max = Math.max(_a, Math.max(_b, _c));
 		if(2*max < _a+_b+_c)
 			return true;
-		throw new RuntimeException("Triangle is not valid");
+		throw new Exception("Triangle is not valid");
 	}
 
-	public void setPointA(Point a)
+	public void setPointA(Point a) throws Exception
 	{
 		this.a = a;
 		this.checkIfValid();
 	}
 
-	public void setPointB(Point b)
+	public void setPointB(Point b) throws Exception
 	{
 		this.b = b;
 		this.checkIfValid();
 	}
 
-	public void setPointC(Point c)
+	public void setPointC(Point c) throws Exception
 	{
 		this.c = c;
 		this.checkIfValid();
@@ -97,7 +97,7 @@ class Triangle implements Comparable<Triangle>
 		return Math.sqrt(p*(p-a)*(p-b)*(p-c));
 	}
 
-	public double getHeight(int whichVertic) throws RuntimeException
+	public double getHeight(int whichVertic) throws IllegalArgumentException
 	{
 		/*
 			 whichVertic :=1 - BC
@@ -124,7 +124,7 @@ class Triangle implements Comparable<Triangle>
 				break;
 		}
 		if(status == false)
-			throw new RuntimeException("Param is not valid");
+			throw new IllegalArgumentException("Param is not valid");
 		return Math.abs( (2*area)/floor );
 	}
 
