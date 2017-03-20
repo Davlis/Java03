@@ -11,12 +11,15 @@ class Triangle implements Comparable<Triangle>
 	private double height;
 	private double perimeter;
 
+	/*
+		 Default constructor Triangle():
+		 Pytagoras triangle |A| = 3, |B| = 4, |C| = 5
+	*/
 	public Triangle()
 	{
 		this.a = new Point(0,0);
 		this.b = new Point(3,0);
 		this.c = new Point(0,4);
-		// default triangle is pytagoras triangle A = 3, B = 4, C = 5
 		this.checkIfValid();
 	}
 
@@ -96,12 +99,12 @@ class Triangle implements Comparable<Triangle>
 
 	public double getHeight(int whichVertic) throws RuntimeException
 	{
-		// P = (a*h)/2 
-		// 2P = a*h
-		// 2P/a = h
-		// 1 - BC
-		// 2 - AC
-		// 3 - AB
+		/*
+			 whichVertic :=1 - BC
+			 whichVertic :=2 - AC
+			 whichVertic :=3 - AB
+			 Perfect for enumerable type :)
+		*/
 		double floor = 0;
 		double area = this.getArea();
 		boolean status = true;

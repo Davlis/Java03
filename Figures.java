@@ -9,24 +9,7 @@ class Figures
 {
     public static void main(String[] args)
      {
-        /*
-     	try
-            {
-             	Point a = new Point(0,0);
-             	Point b = new Point(0,5);
-             	Point c = new Point(5,0);
-                Triangle triangle = new Triangle(a,b,c);
-                System.out.println("Triangle1 : "+triangle);
-                System.out.println(triangle.getPenimeter());
-
-                //triangle.getHeight(4);
-
-            } catch (RuntimeException e)
-            {
-                System.out.println(e);
-            }
-        */
-
+        // simple tests
         try
         {
             List<Quadrangle> listOfQuadrangles = new ArrayList<Quadrangle>();

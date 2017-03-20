@@ -96,8 +96,7 @@ class Quadrangle implements Comparable<Quadrangle>
 
 	public double max(double a, double b, double c, double d)
 	{
-		double max = Math.max(Math.max(a,b), Math.max(c, d));
-		return max;
+		return Math.max(Math.max(a,b), Math.max(c, d));
 	}
 
 	public double getPenimeter()
@@ -106,7 +105,7 @@ class Quadrangle implements Comparable<Quadrangle>
 		double b = this.b.getLength(this.d);
 		double c = this.c.getLength(this.a);
 		double d = this.a.getLength(this.d);
-		return a+b+c+d;
+		return a + b + c + d;
 	}
 
 	public double getArea()
@@ -130,8 +129,6 @@ class Quadrangle implements Comparable<Quadrangle>
         }
     }
 
-
-// RuntimeException
 	@Override
 	public int compareTo(Quadrangle quadrangle)
 	{
