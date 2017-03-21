@@ -96,10 +96,19 @@ class Quadrangle implements Comparable<Quadrangle>
 		double d = this.a.getLength(this.d);
 
 		double _MAX = this.max(a,b,c,d);
-		if(2*_MAX < a+b+c+d)
+		if(2*_MAX < a+b+c+d) {
+			this.checkIfLinear();
 			return true;
+		}
 		throw new Exception("Quadrangle is not valid");
 
+	}
+
+	public void checkIfLinear() throws Exception
+	{
+		if( ((this.a.getX() == this.b.getX()) && (this.a.getX() == this.c.getX()) && (this.a.getX() == this.d.getX())) 
+			|| (( this.a.getY() == this.b.getY()) && (this.a.getY() == this.c.getY()) && (this.a.getY() == this.d.getY())))
+			throw new Exception("Quadrangle is not valid");
 	}
 
 	public double max(double a, double b, double c, double d)

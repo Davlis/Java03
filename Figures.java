@@ -38,6 +38,12 @@ class Figures
             Quadrangle aa = new Quadrangle(xx1,xx2,xx3,xx4);
             System.out.println(aa.diagonal(new Point(0,0)));
 
+            ListIterator listIterator = listOfQuadrangles.listIterator();
+            while(listIterator.hasNext())
+            {
+                System.out.println(listIterator.next());
+            }
+
         }
         catch(Exception e)
         {

@@ -45,9 +45,18 @@ class Triangle implements Comparable<Triangle>
 		double _b = this.b.getLength(this.c);
 		double _c = this.c.getLength(this.a);
 		double max = Math.max(_a, Math.max(_b, _c));
-		if(2*max < _a+_b+_c)
+		if(2*max < _a+_b+_c) {
+			this.checkIfLinear();
 			return true;
+		}
 		throw new Exception("Triangle is not valid");
+	}
+
+	public void checkIfLinear() throws Exception
+	{
+		if( ((this.a.getX() == this.b.getX()) && (this.a.getX() == this.c.getX())) 
+			|| (( this.a.getY() == this.b.getY()) && (this.a.getY() == this.c.getY())))
+			throw new Exception("Triangle is not valid");
 	}
 
 	public void setPointA(Point a) throws Exception
